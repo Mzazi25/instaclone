@@ -3,11 +3,11 @@ from django.http  import HttpResponse
 from .forms import UserForm, CommentForm
 from .models import Profile,Image, Like,Comment
 from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 # Create your views here.
 
-User = get_user_model()
 def home(request):
     if request.method == 'POST':
         data = request.POST
@@ -24,4 +24,4 @@ def home(request):
     images=Image.objects.all()
 
     user = request.user
-    return render(request,'profile/account.html', {"images":images,"all":all,"user":user})
+    return render(request,'profile/home.html', {"images":images,"all":all,"user":user})
