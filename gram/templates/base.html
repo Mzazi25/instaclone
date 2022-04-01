@@ -10,6 +10,9 @@
   {% else %}
     <title> Insta Clone </title>
   {% endif %}
+  {% include "navbar.html" %}
+
+  {% block content %} 
 
   {% block styles %}
     {% bootstrap_css %}
@@ -21,9 +24,7 @@
 <body>
 
 
-    {% include "navbar.html" %}
-
-    {% block content %} 
+  
     <div class="container">
       <div class="row">
         <div class="col-md-2"></div>
