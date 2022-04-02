@@ -35,10 +35,10 @@
                       </a>
                 <ul class="dropdown-menu" role="menu">
                   <li>
-                    <a href="{%url 'newsToday'%}">Home</a>
+                    <a href="{%url 'account'%}">Home</a>
                   </li>
                   <li>
-                    <a href="{%url 'new-article'%}">Create Article</a>
+                    <a href="{%url 'account'%}">Create Article</a>
                   </li>
                   <li>
                     <a href="/accounts/password/change">Change Password</a>
@@ -51,7 +51,7 @@
             </ul>
             {% else %}
             <li style="list-style:none;">
-              <a class='btn btn-dark' href="/accounts/login">Login</a>
+              <a class='btn btn-default' href="/accounts/login">Login</a>
             </li>
 
             {% endif %}

@@ -16,12 +16,21 @@ Including another URLconf
 
 import gram
 from django.contrib import admin
-from django.urls import include, re_path
-from django.contrib.auth import views 
+from django.urls import include, path
+from django.contrib.auth import views
+from django_registration.backends.one_step.views import RegistrationView
+from django.contrib.auth.views import LoginView,LogoutView 
+
+
 urlpatterns = [
-    re_path(r'^admin/', admin.site.urls),
-    re_path(r'',include('gram.urls')),
-    re_path(r'^accounts/', include('django_registration.backends.one_step.urls')),
-    re_path(r'^logout/$', views.LoginView.as_view(), {"next_page": '/'}),
-    re_path(r'^logout/$', views.LogoutView.as_view(), {"next_page": '/'}),
+
+    path(r'^admin/', admin.site.urls),
+    path(r'',include('gram.urls')),
+    path('accounts/register/',
+        RegistrationView.as_view(success_url='/account/'),
+        name='django_registration_register'),
+    path(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path(r'^logout/$', LogoutView.as_view, {"next_page": '/'}),
+    path(r'^login/$', LoginView.as_view(), {"next_page": '/'}),
 ]
