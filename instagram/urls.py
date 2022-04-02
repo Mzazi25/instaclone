@@ -33,4 +33,5 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path(r'^logout/$', LogoutView.as_view, {"next_page": '/'}),
     path(r'^login/$', LoginView.as_view(), {"next_page": '/'}),
+
 ]

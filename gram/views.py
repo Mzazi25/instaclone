@@ -25,8 +25,8 @@ def account(request):
     all = User.objects.all()
     images=Image.objects.all()
 
-    username = request.username
-    return render(request,'account.html', {"images":images,"all":all,"username":username})
+    user = request.user
+    return render(request,'account.html', {"images":images,"all":all,"user":user})
 @login_required(login_url='accounts/login/')
 def home(request):
     if request.method == 'POST':
