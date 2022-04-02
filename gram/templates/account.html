@@ -32,5 +32,29 @@
     </div>
     {% endfor %}
 
+    <!--Display news Article images  -->
+    <div class="container">
+        <div class="row">
+        {% for photo in photos %}
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+          <div class="hovereffect">
+            <a href="{% url 'photo' photo.id %}"><img class="img-fluid" src="{{photo.image.url}}" style="height: 200px; width: 400px; " alt="">
+              <div class="overlay"></a>
+              
+                 <h4>{{photo.name}}</h4>
+                 <!-- <h6>{{photo.description}}</h6> -->
+              </div>
+          </div>
+        </div>
+      
+    
+      {% empty %}
+      <div class="row">
+        <h2 class="text-center">There No Photos</h2>
+      </div>
+      {% endfor %}
+    
+    </div>
+
 </div>
 {% endblock %}
