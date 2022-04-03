@@ -2,59 +2,92 @@
 {% load bootstrap5 %}
 {% load static %}
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <br>
-            <div class="jumbotron">
-                <form action="" method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <textarea required class="form-control" name="description" rows="5"
-                    placeholder="What's on your mind..."></textarea>
-
-                    <input required type="file" name="image" id="files" class="form-control" />
-                    <button id="postBtn" type="submit" class="btn btn-dark mb-3">Post Status</button>
-
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <div class="following">
-        <h5>Suggested Friends</h5>
-    </div>
-    {% for user in all %}
-    <div style="display: block;" class="container">
-        <img src="../../../static/images/logo/home.png" alt="">
-        <h5>{{user.username}}</h5>
-        <button type="submit" id="follo" class="btn btn-outline-info btn-sm">Follow <i
-                class="fa fa-plus" aria-hidden="true"></i></button>
-    </div>
-    {% endfor %}
-
-    <!--Display news Article images  -->
     <div class="container">
         <div class="row">
-        {% for photo in photos %}
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-          <div class="hovereffect">
-            <a href="{% url 'photo' photo.id %}"><img class="img-fluid" src="{{photo.image.url}}" style="height: 200px; width: 400px; " alt="">
-              <div class="overlay"></a>
-              
-                 <h4>{{photo.name}}</h4>
-                 <!-- <h6>{{photo.description}}</h6> -->
-              </div>
-          </div>
-        </div>
-      
-    
-      {% empty %}
-      <div class="row">
-        <h2 class="text-center">There No Photos</h2>
-      </div>
-      {% endfor %}
-    
+            <div class="col-md-3">
+                <div class="jumbotron" >
+                    <div class="alert alert-success" role="alert" style="background-color:blanchedalmond;">
+                        <h4 class="alert-heading">Trending News</h4>
+                        <p>
+                            “Will Smith Slaps Chris Rock on Stage”
+                        </p>
+                        <hr>
+                        <p class="mb-0">—Yours Truly</p>
+                    </div>
+                </div>
+                <div class="jumbotron" >
+                    <div class="alert alert-success" role="alert" style="background-color:blanchedalmond;">
+                        <h4 class="alert-heading">Song of The Week</h4>
+                        <p>
+                            “Crypto”
+                        </p>
+                        <hr>
+                        <p class="mb-0">—Rich the Kid ft Takeoff</p>
+                    </div>
+                </div>
+                <div class="jumbotron" >
+                    <div class="alert alert-success" role="alert" style="background-color:blanchedalmond;">
+                        <h4 class="alert-heading">Pun of The Day</h4>
+                        <p>
+                            “No matter how much you push the envelope, it’ll still be stationery.”
+                        </p>
+                        <hr>
+                        <p class="mb-0">—Envelope Guy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="jumbotron">
+                        <h6>Share with us Today</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                        <div class="">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <textarea required class="form-control" name="description" rows="3"
+                                            placeholder="What's on your mind..."></textarea>
+                                    </div>
+                                    <input required type="file" name="image" id="files" class="form-control" />
+                                    <button id="postBtn" type="submit" class="btn btn-primary mb-3">Share </button>
+                                </form>
+                        </div>
+                    </div>
+                </div>
+    <div class="jumbotron" >
+        <div class="row">
+                        
+        <div class="images" style="height: 200px; width: 400px;" >
+                {% for images in images %}
+                <div class="post" style="margin-bottom: 10px;">
+                <div class="img">
+                <img style="height: 200px; width: 400px;" src="{{images.image.url}}" class="img-fluid" alt="">
+                <h5>{{images.user.username}}</h5>
+                <small>{{images.post_date}}</small>
+                <div class="part2">
+                 <p>
+                {{images.description}}
+                    </p>
+                    <div class="image">
+                    <img src="{{images.image.url}}" class="img-fluid" alt="profile pic">
+                    </div>
+                </div>
+                            {% endfor %}    
+                        </div>    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="jumbotron">
+                        <h6>Friend Suggestions</h6>
+                    </div>
+                    {% for user in all %}
+                    <div class="part1">
+                        <h5>{{user.username}}</h5>
+                        <button type="submit" class="btn btn-outline-info btn-sm">Follow <i
+                                class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                    {% endfor %}
     </div>
-
-</div>
 {% endblock %}
