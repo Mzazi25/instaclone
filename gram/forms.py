@@ -1,5 +1,5 @@
 from django import forms
-from .models import Image, Like, Comment, Profile
+from .models import Image, Comment, Profile
 
 class UserForm(forms.Form):
     your_name = forms.CharField(label='First Name',max_length=30)

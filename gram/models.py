@@ -9,10 +9,6 @@ class Image(models.Model):
     image = models.ImageField(null=False,blank=False)
     pub_date = models.DateTimeField(auto_now_add=True)
 
-class Like(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    post = models.ForeignKey(Image,on_delete=models.CASCADE)
-
 class Profile(models.Model):
     username = models.CharField(max_length =30)
     description = models.TextField(null=True,blank=True)

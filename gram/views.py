@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
 from .forms import UserForm, CommentForm
-from .models import Profile,Image, Like,Comment
+from .models import Profile,Image,Comment
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 User = get_user_model()
