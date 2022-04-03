@@ -6,10 +6,10 @@ class ImageTestClass(TestCase):
     # testing image
     def setUp(self):
         self.image= Image(name = 'James', description ='image')
-    # Testing  location
+    # Testing  profile
     def setUp(self):
         self.profile= Profile(profile="Mzazi")
-        # Testing  category
+        # Testing comments
     def setUp(self):
         self.Comment= Comment(comment="news")
     
