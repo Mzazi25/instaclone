@@ -6,7 +6,7 @@ A clone of the popular Instagram application. Users are able to upload images,se
 ![views](static/images/Image.png)
 
 ### Live link
-Visit the application on https://dashboard.heroku.com/apps/gram25
+Visit the application on https://gram25.herokuapp.com/
 ### Setup & Run Instructions
 - Create and activate a virtual environment
 - Install the dependencies listed in the requirements.txt
