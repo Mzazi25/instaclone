@@ -17,8 +17,7 @@ def account(request):
 
         post = Image.objects.create(
             description = data['description'],
-            image = image,
-            user = request.user
+            image = image
         )
         return redirect('account')
     
