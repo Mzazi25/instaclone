@@ -26,7 +26,7 @@ def account(request):
 
     user = request.user
     return render(request,'account.html', {"images":images,"all":all,"user":user})
-@login_required(login_url='accounts/login/')
+@login_required(login_url='accounts/register/')
 def home(request):
     if request.method == 'POST':
         data = request.POST            
